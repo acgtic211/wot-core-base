@@ -1,0 +1,98 @@
+{
+    "@type": "WoTKNXSwitch_v1_0_0",
+    "id": "KNXSwitch_2",
+    "title": "KNXSwitch 2",
+    "description": "KNXSwitch 2",
+    "properties": {
+        "status": {
+            "title": "status",
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "forms": [
+                {
+                    "op": "readproperty",
+                    "href": "https://acgsaas.ual.es:443/knxswitch-2/status",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": "writeproperty",
+                    "href": "mqtt://acgsaas.ual.es:443/knxswitch-2/wstatus",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/knxswitch-2/status",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "toggle": {
+            "title": "Toggle",
+            "description": "Toggle the light´s status",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "https://acgsaas.ual.es:443/knxswitch-2/toggle",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {
+        "onChangeStatus": {
+            "title": "onChangeStatus",
+            "description": "Change on the fire system´s status",
+            "data": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/knxswitch-2/onChangeStatus",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": "unsubscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/knxswitch-2/onChangeStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTKNXSwitch_v1_1_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTKNXSwitch_2.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTKNXSwitch_2.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/knxswitch-2/ui",
+            "type": "text/html"
+        }
+    ]
+}

@@ -1,0 +1,363 @@
+{
+    "name": "Servient_9",
+    "protocolManager": {
+        "httpManager": {
+			"gateway": {
+				"hostname": "mosquitto",
+				"port": 9001,
+				"topic": "/management"
+			},
+			"reconnectPeriod": 10000
+		},
+		"mqttManager": {
+			"server": {
+				"hostname": "mosquitto",
+				"port": 9001
+			},
+			"reconnectPeriod": 10000
+		},
+		"mqttsManager": {
+			"server": {
+				"hostname": "mosquitto",
+				"port": 9883
+			},
+			"reconnectPeriod": 100000
+		},
+		"httpsManager": {
+			"gateway": {
+				"hostname": "mosquitto",
+				"port": 9883,
+				"topic": "/management"
+			},
+			"reconnectPeriod": 10000
+		}
+    },
+    "consumedThings": [
+        {
+            "thingDescriptionHref": "https://acg.ual.es:443/things/acg:lab:suitcase-dd/"
+        }
+    ],
+    "exposedThings": [
+		
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTKNXSwitch_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-knxswitch",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "KNXSwitch_1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://repository:38080/web-of-things/thing-descriptions/WoTKNXSwitch_1.json"
+						},
+						{
+							"key": "read-status",
+							"value": "readproperty#digitalStatus"
+						},
+						{
+							"key": "on-change-status",
+							"value": "subscribeevent#onChangeStatus"
+						},
+						{
+							"key": "location",
+							"value": "ACG WoT Lab"
+						},
+						{
+							"key": "identifier",
+							"value": "KNX Switch 1"
+						},
+						{
+							"key": "status-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/knxswitch-1/status"
+						},
+						{
+							"key": "onchangestatus-href",
+							"value": "wss://acgsaas.ual.es:443/knxswitch-1/onChangeStatus"
+						},
+						{
+							"key": "toggleStatus-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/knxswitch-1/toggle"
+						},
+						{
+							"key": "dd-href",
+							"value": "https://acg.ual.es/things/acg:lab:suitcase-dd/property/status-light1"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCKNXSwitch_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTKNXSwitch_2.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-knxswitch",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "KNXSwitch_2"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://repository:38080/web-of-things/thing-descriptions/WoTKNXSwitch_2.json"
+						},
+						{
+							"key": "read-status",
+							"value": "readproperty#status"
+						},
+						{
+							"key": "on-change-status",
+							"value": "subscribeevent#onChangeStatus"
+						},
+						{
+							"key": "location",
+							"value": "ACG WoT Lab"
+						},
+						{
+							"key": "identifier",
+							"value": "KNX Switch 2"
+						},
+						{
+							"key": "status-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/knxswitch-2/status"
+						},
+						{
+							"key": "onchangestatus-href",
+							"value": "wss://acgsaas.ual.es:443/knxswitch-2/onChangeStatus"
+						},
+						{
+							"key": "toggleStatus-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/knxswitch-2/toggle"
+						},
+						{
+							"key": "dd-href",
+							"value": "https://acg.ual.es/things/acg:lab:suitcase-dd/property/status-light2"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCKNXSwitch_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTKNXWaterSwitch_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-knxswitch",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "KNXWaterSwitch_1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://repository:38080/web-of-things/thing-descriptions/WoTKNXWaterSwitch_1.json"
+						},
+						{
+							"key": "read-status",
+							"value": "readproperty#status"
+						},
+						{
+							"key": "on-change-status",
+							"value": "subscribeevent#onChangeStatus"
+						},
+						{
+							"key": "location",
+							"value": "ACG WoT Lab"
+						},
+						{
+							"key": "identifier",
+							"value": "KNX Water Switch 1"
+						},
+						{
+							"key": "status-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/knxwaterswitch-1/status"
+						},
+						{
+							"key": "onchangestatus-href",
+							"value": "wss://acgsaas.ual.es:443/knxwaterswitch-1/onChangeStatus"
+						},
+						{
+							"key": "toggleStatus-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/knxwaterswitch-1/toggle"
+						},
+						{
+							"key": "dd-href",
+							"value": "https://acg.ual.es/things/acg:lab:suitcase-dd/property/status-water"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCKNXSwitch_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTKNXFireSwitch_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-knxswitch",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "KNXFireSwitch_1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://repository:38080/web-of-things/thing-descriptions/WoTKNXFireSwitch_1.json"
+						},
+						{
+							"key": "read-status",
+							"value": "readproperty#status"
+						},
+						{
+							"key": "on-change-status",
+							"value": "subscribeevent#onChangeStatus"
+						},
+						{
+							"key": "location",
+							"value": "ACG WoT Lab"
+						},
+						{
+							"key": "identifier",
+							"value": "KNX Fire Switch 1"
+						},
+						{
+							"key": "status-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/knxfireswitch-1/status"
+						},
+						{
+							"key": "onchangestatus-href",
+							"value": "wss://acgsaas.ual.es:443/knxfireswitch-1/onChangeStatus"
+						},
+						{
+							"key": "toggleStatus-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/knxfireswitch-1/toggle"
+						},
+						{
+							"key": "dd-href",
+							"value": "https://acg.ual.es/things/acg:lab:suitcase-dd/property/status-fire"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCKNXSwitch_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTKNXDimmer_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-knxdimmer",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "KNXDimmer_1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTKNXDimmer_1.json"
+						},
+						{
+							"key": "read-brightness",
+							"value": "readproperty#brightness"
+						},
+						{
+							"key": "on-change-brightness",
+							"value": "subscribeevent#onChangeBrightness"
+						},
+						{
+							"key": "location",
+							"value": "ACG WoT Lab"
+						},
+						{
+							"key": "identifier",
+							"value": "KNX Dimmer 1"
+						},
+						{
+							"key": "bri-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/knxdimmer-1/bri"
+						},
+						{
+							"key": "slide-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/knxdimmer-1/slide"
+						},
+						{
+							"key": "onChangeBrightness-href",
+							"value": "wss://acgsaas.ual.es:443/knxdimmer-1/onChangeBrightness"
+						},
+						{
+							"key": "dd-href",
+							"value": "https://acg.ual.es/things/acg:lab:suitcase-dd/property/luminosity-dimmer1"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCKNXDimmer_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTKNXDimmer_2.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-knxdimmer",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "KNXDimmer_2"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTKNXDimmer_2.json"
+						},
+						{
+							"key": "read-brightness",
+							"value": "readproperty#brightness"
+						},
+						{
+							"key": "on-change-brightness",
+							"value": "subscribeevent#onChangeBrightness"
+						},
+						{
+							"key": "location",
+							"value": "ACG WoT Lab"
+						},
+						{
+							"key": "identifier",
+							"value": "KNX Dimmer 2"
+						},
+						{
+							"key": "bri-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/knxdimmer-2/bri"
+						},
+						{
+							"key": "slide-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/knxdimmer-2/slide"
+						},
+						{
+							"key": "onChangeBrightness-href",
+							"value": "wss://acgsaas.ual.es:443/knxdimmer-2/onChangeBrightness"
+						},
+						{
+							"key": "dd-href",
+							"value": "https://acg.ual.es/things/acg:lab:suitcase-dd/property/luminosity-dimmer2"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCKNXDimmer_v1_0_0.js"
+				}
+			}
+		}
+    ],
+    "afterInitTimeout": 10000,
+	"afterStartAllThings": []
+}

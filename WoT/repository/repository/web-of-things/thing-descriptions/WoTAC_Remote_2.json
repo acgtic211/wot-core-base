@@ -1,0 +1,123 @@
+{
+    "@type": "WoTAC_Remote_2",
+    "id": "WoTACRemote_2",
+    "title": "WoT AC Remote 2",
+    "properties": {
+        "temperature": {
+            "type": "integer",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/acremote-2/temperature",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/acremote-2/temperature",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "status": {
+            "type": "boolean",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/acremote-2/status",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/acremote-2/status",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "increase": {
+            "title": "Increase",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/acremote-2/increase",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "decrease": {
+            "title": "Decrease",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/acremote-2/decrease",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "toggle": {
+            "title": "Toggle",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/acremote-2/toggle",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {
+        "temperatureStatus": {
+            "title": "temperatureStatus",
+            "data": {
+                "title": "temperature",
+                "type": "integer"
+            },
+            "type": "integer",
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/acremote-2/temperatureStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "onChangeStatus": {
+            "title": "On change status",
+            "data": {
+                "title": "status",
+                "type": "boolean"
+            },
+            "type": "boolean",
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/acremote-2/onchangestatus",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTACRemote_2.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTACRemote_2.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTACRemote_2.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/acremote-2/ui",
+            "type": "text/html"
+        }
+    ]
+}

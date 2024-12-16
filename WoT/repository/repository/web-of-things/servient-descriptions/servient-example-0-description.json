@@ -1,0 +1,448 @@
+{
+	"name": "Servient_Example_0",
+	"protocolManager": {
+		"httpManager": {
+			"gateway": {
+				"hostname": "mosquitto",
+				"port": 9001,
+				"topic": "/management"
+			},
+			"reconnectPeriod": 10000
+		},
+		"mqttManager": {
+			"server": {
+				"hostname": "mosquitto",
+				"port": 9001
+			},
+			"reconnectPeriod": 10000
+		},
+		"mqttsManager": {
+			"server": {
+				"hostname": "mosquitto",
+				"port": 9883
+			},
+			"reconnectPeriod": 10000
+		},
+		"httpsManager": {
+			"gateway": {
+				"hostname": "mosquitto",
+				"port": "8443",
+				"topic": "/management"
+			},
+			"reconnectPeriod": 10000
+		}
+	},
+	"consumedThings": [
+    ],
+	"exposedThings": [
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTSwitch_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-switch",
+					"attributes": [
+						{
+							"key": "ui-send-request",
+							"value": "mqtt://localhost:9001/switch-1/ui/sendRequest"
+						},
+						{
+							"key": "ui-receive-response",
+							"value": "mqtt://localhost:9001/switch-1/ui/reciveResponse"
+						},
+						{
+							"key": "thing-id",
+							"value": "WoTSwitch_1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTSwitch_1.json"
+						},
+						{
+							"key": "read-status",
+							"value": "readproperty#status"
+						},
+						{
+							"key": "invoke-press",
+							"value": "invokeaction#press"
+						},
+						{
+							"key": "on-change-status",
+							"value": "subscribeevent#onChangeStatus"
+						},
+						{
+							"key": "location",
+							"value": "Universidad de Almería"
+						},
+						{
+							"key": "identifier",
+							"value": "Switch 1"
+						},
+						{
+							"key": "status-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/switch-1/status"
+						},
+						{
+							"key": "press-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/switch-1/press"
+						},
+						{
+							"key": "onchangestatus-href",
+							"value": "mqtt://localhost:9001/switch-1/onChangeStatus"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCSwitch_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTBulb_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-bulb",
+					"attributes": [
+						{
+							"key": "ui-send-request",
+							"value": "mqtt://localhost:9001/bulb-1/ui/sendRequest"
+						},
+						{
+							"key": "ui-receive-response",
+							"value": "mqtt://localhost:9001/bulb-1/ui/reciveResponse"
+						},
+						{
+							"key": "thing-id",
+							"value": "WoTBulb_1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTBulb_1.json"
+						},
+						{
+							"key": "read-status",
+							"value": "readproperty#status"
+						},
+						{
+							"key": "on-change-status",
+							"value": "subscribeevent#onChangeStatus"
+						},
+						{
+							"key": "location",
+							"value": "Universidad de Almería"
+						},
+						{
+							"key": "identifier",
+							"value": "Bulb 1"
+						},
+						{
+							"key": "status-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/bulb-1/status"
+						},
+						{
+							"key": "onchangestatus-href",
+							"value": "mqtt://localhost:9001/bulb-1/onChangeStatus"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCBulb_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json"
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTSlider_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-slider",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "WoTSlider_1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTSlider_1.json"
+						},
+						{
+							"key": "read-position",
+							"value": "readproperty#position"
+						},
+						{
+							"key": "invoke-slide",
+							"value": "invokeaction#slide"
+						},
+						{
+							"key": "on-change-position",
+							"value": "subscribeevent#onChangePosition"
+						},
+						{
+							"key": "location",
+							"value": "Universidad de Almería"
+						},
+						{
+							"key": "identifier",
+							"value": "Slider 1"
+						},
+						{
+							"key": "position-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/slider-1/position"
+						},
+						{
+							"key": "slide-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/slider-1/slide"
+						},
+						{
+							"key": "onchangeposition-href",
+							"value": "mqtt://localhost:9001/slider-1/onChangePosition"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCSlider_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTBlind_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-blind",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "WoTBlind_1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTBlind_1.json"
+						},
+						{
+							"key": "read-position",
+							"value": "readproperty#position"
+						},
+						{
+							"key": "on-change-position",
+							"value": "subscribeevent#onChangePosition"
+						},
+						{
+							"key": "location",
+							"value": "Universidad de Almería"
+						},
+						{
+							"key": "identifier",
+							"value": "Blind 1"
+						},
+						{
+							"key": "position-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/blind-1/position"
+						},
+						{
+							"key": "onchangeposition-href",
+							"value": "mqtt://localhost:9001/blind-1/onChangePosition"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCBlind_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTScreen_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-screen",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "WoTScreen_1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTScreen_1.json"
+						},
+						{
+							"key": "read-text",
+							"value": "readproperty#text"
+						},
+						{
+							"key": "invoke-send",
+							"value": "invokeaction#send"
+						},
+						{
+							"key": "on-change-text",
+							"value": "subscribeevent#onChangeText"
+						},
+						{
+							"key": "location",
+							"value": "Universidad de Almería"
+						},
+						{
+							"key": "identifier",
+							"value": "Screen 1"
+						},
+						{
+							"key": "text-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/screen-1/text"
+						},
+						{
+							"key": "onchangetext-href",
+							"value": "mqtt://localhost:9001/screen-1/onChangeText"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCScreen_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTKeyboard_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-keyboard",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "WoTKeyboard_1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTKeyboard_1.json"
+						},
+						{
+							"key": "read-text",
+							"value": "readproperty#text"
+						},
+						{
+							"key": "on-change-text",
+							"value": "subscribeevent#onChangeText"
+						},
+						{
+							"key": "location",
+							"value": "Universidad de Almería"
+						},
+						{
+							"key": "identifier",
+							"value": "Keyboard 1"
+						},
+						{
+							"key": "text-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/keyboard-1/text"
+						},
+						{
+							"key": "send-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/keyboard-1/send"
+						},
+						{
+							"key": "onchangetext-href",
+							"value": "mqtt://localhost:9001/keyboard-1/onChangeText"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCKeyboard_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTLedSwitch_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-ledswitch",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "WoTLedSwitch_1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTLedSwitch_1.json"
+						},
+						{
+							"key": "read-leds",
+							"value": "readproperty#leds"
+						},
+						{
+							"key": "on-change-led-status",
+							"value": "subscribeevent#onChangeLedStatus"
+						},
+						{
+							"key": "location",
+							"value": "Universidad de Almería"
+						},
+						{
+							"key": "identifier",
+							"value": "Led Switch 1"
+						},
+						{
+							"key": "leds-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/ledswitch-1/leds"
+						},
+						{
+							"key": "toggle-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/ledswitch-1/toggle"
+						},
+						{
+							"key": "onchangeledstatus-href",
+							"value": "mqtt://localhost:9001/ledswitch-1/onChangeLedStatus"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCLedSwitch_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTLedLine_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-ledline",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "WoTLedLine_1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTLedLine_1.json"
+						},
+						{
+							"key": "read-leds",
+							"value": "readproperty#leds"
+						},
+						{
+							"key": "on-change-led-status",
+							"value": "subscribeevent#onChangeLedStatus"
+						},
+						{
+							"key": "location",
+							"value": "Universidad de Almería"
+						},
+						{
+							"key": "identifier",
+							"value": "Led Line 1"
+						},
+						{
+							"key": "leds-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/ledline-1/leds"
+						},
+						{
+							"key": "onchangeledstatus-href",
+							"value": "mqtt://localhost:9001/ledline-1/onChangeLedStatus"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCLedLine_v1_0_0.js"
+				}
+			}
+		}
+	],
+	"afterInitTimeout": 10000,
+	"afterStartAllThings": []
+}

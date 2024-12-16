@@ -1,0 +1,133 @@
+{
+    "@type": "WoTWaterHeater_1",
+    "id": "WoTWaterHeater_1",
+    "title": "Water Heater",
+    "descripcion": "Water Heater",
+    "properties": {
+        "temperature": {
+            "title": "temperature",
+            "type": "integer",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/waterheater-1/temperature",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/waterheater-1/temperature",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "status": {
+            "title": "Status",
+            "type": "boolean",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/waterheater-1/status",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/waterheater-1/status",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "setTemperature": {
+            "title": "Increase",
+            "inputs": {
+                "title": "temperature",
+                "type": "integer"
+            },
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/waterheater-1/setTemperature",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "toggle": {
+            "title": "Toggle",
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "title": "status",
+                        "type": "boolean"
+                    }
+                },
+                "required": [ "status" ]
+            },
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/waterheater-1/toggle",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {
+        "temperatureStatus": {
+            "title": "Temperature status",
+            "data": {
+                "title": "temperatureStatus",
+                "type": "object",
+                "properties": {
+                    "temperature": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/waterheater-1/temperatureStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "WHStatus": {
+            "title": "Water Heater status",
+            "data": {
+                "title": "WHStatus",
+                "type": "boolean"
+            },
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/waterheater-1/whStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTWaterHeater_1.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTWaterHeater_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTWaterHeater_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/waterheater-1/ui",
+            "type": "text/html"
+        }
+    ]
+}

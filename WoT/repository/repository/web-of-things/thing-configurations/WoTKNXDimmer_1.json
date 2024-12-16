@@ -1,0 +1,9 @@
+{
+    "bri": {"brightness": 0},
+    "address": "192.168.1.38",
+    "readGroup": "3/0/2",
+    "writeGroup": "3/0/2",
+    "dataType": "DPT5.001",
+    "pathname": "/knxdimmer-1",
+    "target": "/wcknxdimmer-1"
+}

@@ -1,0 +1,78 @@
+{
+    "@type": "WoTBlind_v1_1_0",
+    "id": "WoTBlind_2",
+    "title": "WoTBlind 2",
+    "description": "WoT Blind 2",
+    "properties": {
+        "position": {
+            "title": "position",
+            "description": "Indicates the blind´s position. 0 == blinds shut. 100 == blinds fully open.",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "forms": [
+                {
+                    "op": [ "readproperty" ],
+                    "href": "https://acgsaas.ual.es:443/blind-2/position",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "writeproperty" ],
+                    "href": "https://acgsaas.ual.es:443/blind-2/wposition",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/blind-2/position",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        
+    },
+    "events": {
+        
+        "onChangePosition": {
+            "title": "On change position",
+            "description": "On change position",
+            "data": {
+                "title": "Position",
+                "description": "position",
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+            },
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/blind-2/onChangePosition",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTBlind_v1_0_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTBlind_2.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTBlind_2.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/blind-2/ui",
+            "type": "text/html"
+        }
+    ]
+}

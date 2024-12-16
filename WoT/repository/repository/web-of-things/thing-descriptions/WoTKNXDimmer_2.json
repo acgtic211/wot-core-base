@@ -1,0 +1,104 @@
+{
+    "@type": "WoTKNXDimmer_v1_0_0",
+    "id": "WoTKNXDimmer_2",
+    "title": "WoTKNXDimmer 2",
+    "description": "WoTKNXDimmer 2",
+    "properties": {
+        "bri": {
+            "type": "object",
+            "properties": {
+                "brightness": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                }
+            },
+            "required": [ "brightness" ],
+            "forms": [
+                {
+                    "op": "readproperty",
+                    "href": "https://acgsaas.ual.es:443/knxdimmer-2/bri",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": "writeproperty",
+                    "href": "mqtt://acgsaas.ual.es:443/knxdimmer-2/wbri",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/knxdimmer-2/bri",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "slide": {
+            "title": "Slide",
+            "description": "Slide",
+            "input": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+            },
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "https://acgsaas.ual.es:443/knxdimmer-2/slide",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {
+        "onChangeBrightness": {
+            "title": "On change brightness",
+            "description": "On change brightness",
+            "data": {
+                "type": "object",
+                "properties": {
+                    "brightness": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100
+                    }
+                }
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/knxdimmer-2/onChangeBrightness",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": "unsubscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/knxdimmer-2/onChangeBrightness",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTKNXDimmer_v1_1_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTKNXDimmer_2.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTKNXDimmer_2.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/knxdimmer-2/ui",
+            "type": "text/html"
+        }
+    ]
+}

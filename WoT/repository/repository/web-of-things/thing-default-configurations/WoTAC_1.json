@@ -1,0 +1,5 @@
+{
+    "alarm": false,
+    "temperature": 20,
+    "allowedid": [ "1", "2"]
+}

@@ -1,0 +1,23 @@
+version: '3.2'
+services:
+  mosquitto:
+      image: eclipse-mosquitto:latest
+      restart: always
+      hostname: mosquitto
+      container_name: mosquitto
+      expose:
+        - "1883"
+        - "9001"
+        - "8443"
+        - "9883"
+      ports:
+        - "1990:1883"
+        - "9001:9001"
+        - "8443:8443"
+        - "9883:9883"
+      volumes:
+            - "/etc/localtime:/etc/localtime:ro"
+            - "/etc/timezone:/etc/timezone:ro"
+            - "/mnt/acg-cluster-data/mqtt/mosquitto-config:/mosquitto/config"
+            - "/mnt/acg-cluster-data/mqtt/mosquitto-data:/mosquitto/data"
+            - "/mnt/acg-cluster-data/mqtt/mosquitto-log:/mosquitto/log"

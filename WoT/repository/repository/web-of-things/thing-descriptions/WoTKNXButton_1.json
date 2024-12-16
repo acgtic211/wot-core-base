@@ -1,0 +1,62 @@
+{
+    "@type": "WoTKNXButton_v1_0_0",
+    "id": "KNXButton_P3",
+    "title": "KNXButton_P3",
+    "description": "KNXButton P3",
+    "properties": {
+
+    },
+    "actions": {
+        "press": {
+            "title": "Press",
+            "description": "Press the button",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/knxbutton-1/press",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {
+        "pressed": {
+            "title": "Pressed",
+            "description": "Triggers when the button is pressed",
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/pressed",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": "unsubscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/pressed",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTKNXButton_v1_1_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTKNXButton_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTKNXButton_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/knxbutton-1/ui",
+            "type": "text/html"
+        }
+    ]
+}

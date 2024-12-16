@@ -1,0 +1,106 @@
+{
+    "@type": "WoTAC_Alarm_1",
+    "id": "WoTAC_Alarm_1",
+    "title": "WoT AC Alarm 1",
+    "properties": {
+        "temperature": {
+            "type": "integer",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/acalarm-1/temperature",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/acalarm-1/temperature",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "alarm": {
+            "type": "boolean",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/acalarm-1/alarm",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/acalarm-1/alarm",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "setAlarm": {
+            "title": "Set alarm",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/acalarm-1/setAlarm",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {
+        "alarmStatus": {
+            "title": "Alarm status",
+            "data": {
+                "title": "alarmStatus",
+                "type": "boolean"
+            },
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/acalarm-1/alarmStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "temperatureStatus": {
+            "title": "Temperature status",
+            "data": {
+                "title": "TemperatureStatus",
+                "type": "object",
+                "properties": {
+                    "temperature": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/acalarm-1/temperatureStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTACAlarm_1.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTACAlarm_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTACAlarm_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/acalarm-1/ui",
+            "type": "text/html"
+        }
+    ]
+}

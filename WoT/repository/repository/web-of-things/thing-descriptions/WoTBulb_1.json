@@ -1,0 +1,77 @@
+{
+   "@type": "WoTBulb_v1_0_0",
+   "id": "Bulb_1",
+   "title": "Bulb 1",
+   "description": "Bulb 1",
+   "properties": {
+      "status": {
+		 "title": "status",
+		 "description": "status",
+		 "type": "boolean",
+         "forms": [
+			 {
+				"op": [ "readproperty" ],
+				"href": "https://acgsaas.ual.es:443/bulb-1/status",
+				"contentType": "application/json"
+			 },
+			 {
+				"op": [ "observeproperty", "unobserveproperty" ],
+				"href": "mqtt://acgsaas.ual.es:443/bulb-1/status",
+				"contentType": "application/json"
+			 },
+			 {
+				"op": [ "writeproperty" ],
+				"href": "https://acgsaas.ual.es:443/bulb-1/wstatus",
+				"contentType": "application/json",
+                "htv:methodName": "PUT"
+			 }
+		 ]
+      }
+   },
+   "actions": {},
+   "events": {
+      "onChangeStatus": {
+         "title": "onChangeStatus",
+         "description": "Change on the status",
+         "data": {
+			 "title": "status",
+			 "description": "Status",
+			 "type": "boolean"
+         },
+         "forms": [
+			 {
+				"op": "subscribeevent",
+				"href": "mqtt://acgsaas.ual.es:443/bulb-1/onChangeStatus",
+				"contentType": "application/json"
+			 },
+			 {
+				"op": "unsubscribeevent",
+				"href": "mqtt://acgsaas.ual.es:443/bulb-1/onChangeStatus",
+				"contentType": "application/json"
+			 }
+		 ]
+      }
+   },
+   "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTBulb_v1_0_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTBulb_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTBulb_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/bulb-1/ui",
+            "type": "text/html"
+        }
+    ]
+}

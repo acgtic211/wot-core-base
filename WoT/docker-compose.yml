@@ -1,0 +1,56 @@
+version: '3'
+services:  
+  http-server:
+    build: ./http-server
+    hostname: http-server
+    container_name: http-server
+    ports: 
+      - "38090:38090"
+    #  - "443:443"
+    expose:
+      - "38090"
+    #  - "443"
+  repository:
+    build: ./repository
+    hostname: repository
+    container_name: repository
+    depends_on: 
+      - "http-server"
+    ports:
+      - "38080:38080"
+    expose:
+      - "38080"
+  app-launcher:
+    build: ./app-launcher
+    hostname: app-launcher
+    container_name: app-launcher
+    depends_on: 
+      - "repository"
+    ports:
+      - "39080:39080"
+    expose:
+      - "39080"
+  mosquitto:
+      image: eclipse-mosquitto:latest
+      restart: always
+      hostname: mosquitto
+      container_name: mosquitto
+      expose:
+        - "1883"
+        - "9001"
+        - "8443"
+        - "9883"
+      ports:
+        - "1990:1883"
+        - "9001:9001"
+        - "8443:8443"
+        - "9883:9883"
+      volumes:
+            - "/etc/localtime:/etc/localtime:ro"
+            - "/etc/timezone:/etc/timezone:ro"
+            - "./mosquitto/mosquitto-config:/mosquitto/config"
+            - "./mosquitto/mosquitto-data:/mosquitto/data"
+            - "./mosquitto/mosquitto-log:/mosquitto/log"
+  
+
+    

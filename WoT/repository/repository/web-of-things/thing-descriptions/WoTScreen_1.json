@@ -1,0 +1,78 @@
+{
+    "@type": "WoTScreen_v1_0_0",
+    "id": "Screen_1",
+    "title": "Screen 1",
+    "description": "Screen 1",
+    "properties": {
+        "text": {
+            "title": "Text",
+            "description": "Text shown on the screen",
+            "type": "string",
+            "forms": [
+                {
+                    "op": [ "readproperty" ],
+                    "href": "https://acgsaas.ual.es:443/screen-1/text",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/screen-1/text",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "writeproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/screen-1/wtext",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+
+    },
+    "events": {
+        "onChangeText": {
+            "title": "onChangeText",
+            "description": "Change on the text",
+            "data": {
+                "title": "text",
+                "description": "Text",
+                "type": "string"
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/screen-1/onChangeText",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": "unsubscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/screen-1/onChangeText",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTScreen_v1_0_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTScreen_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTScreen_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/screen-1/ui",
+            "type": "text/html"
+        }
+    ]
+}

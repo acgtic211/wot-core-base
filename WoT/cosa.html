@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	  </head>
+  <body>
+
+  </body>
+  <script type="module">
+	import 'https://unpkg.com/mqtt/dist/mqtt.min.js';
+	const MQTT = mqtt;
+
+	var CA_CERT;
+	var SERVER_CERT;
+	var SERVER_KEY;
+
+	console.log(MQTT)
+
+	let options = {
+		protocolId: 'MQTT',
+		protocolVersion: 5,
+		connectTimeout: 5000,
+		reconnectPeriod: 10000,
+		keepalive: 0,
+		resubscribe: true,
+		rejectUnauthorized: false,
+		ca: await (await fetch('http://localhost:38080/web-components/keys9/rootCA.crt')).text(),
+		cert: await (await fetch('http://localhost:38080/web-components/keys9/server.crt')).text(),
+		key: await (await fetch('http://localhost:38080/web-components/keys9/server.key')).text(),
+		clientId: "mqttsClient" + Math.random().toString(16).substr(2, 8)
+	};
+
+	var client = await MQTT.connect('wss://localhost:9883/', options);
+
+	client.on('connect', ()=> {
+		console.log("Connected to MQTTS");
+		client.subscribe('ac-1/temperatureStatus');
+	})
+
+	client.on('message', (topic, msg, packet) => {
+		console.log("Topic", topic);
+		var temp = new TextEncoder().encode(msg);
+		var s = new TextDecoder().decode(temp);
+		console.log("MEssage", s);
+	})
+		
+    
+  </script>
+</html>

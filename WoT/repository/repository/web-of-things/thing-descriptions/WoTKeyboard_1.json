@@ -1,0 +1,91 @@
+{
+    "@type": "WoTKeyboard_v1_0_0",
+    "id": "Keyboard_1",
+    "title": "Keyboard 1",
+    "description": "Keyboard 1",
+    "properties": {
+        "text": {
+            "title": "Text",
+            "description": "Text",
+            "type": "string",
+            "forms": [
+                {
+                    "op": [ "readproperty" ],
+                    "href": "https://acgsaas.ual.es:443/keyboard-1/text",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/keyboard-1/text",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "writeproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/keyboard-1/wtext",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "send": {
+            "title": "send",
+            "description": "Sends new text to WoT Screen",
+            "input": {
+                "type": "string"
+            },
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "https://acgsaas.ual.es:443/keyboard-1/send",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {
+        "onChangeText": {
+            "title": "onChangeText",
+            "description": "Change on the text",
+            "data": {
+                "title": "Text",
+                "description": "Text",
+                "type": "string"
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/keyboard-1/onChangeText",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": "unsubscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/keyboard-1/onChangeText",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTKeyboard_v1_0_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTKeyboard_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTKeyboard_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/keyboard-1/ui",
+            "type": "text/html"
+        }
+    ]
+}

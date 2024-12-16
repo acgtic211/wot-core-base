@@ -1,0 +1,97 @@
+{
+    "@type": "WoTSlider_v1_0_0",
+    "id": "WoTSlider_1",
+    "title": "WoTSlider 1",
+    "description": "WoTSlider 1",
+    "properties": {
+        "position": {
+            "title": "position",
+            "description": "The slider´s position",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "forms": [
+                {
+                    "op": [ "readproperty" ],
+                    "href": "https://acgsaas.ual.es:443/slider-1/position",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/slider-1/position",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "writeproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/slider-1/wposition",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "slide": {
+            "title": "Slide",
+                "description": "slide",
+                "input": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "forms": [
+                    {
+                        "op": "invokeaction",
+                        "href": "https://acgsaas.ual.es:443/slider-1/slide",
+                        "contentType": "application/json"
+                    }
+                ]
+        }
+    },
+    "events": {
+        "onChangePosition": {
+            "title": "On change position",
+            "description": "On change position",
+            "data": {
+                "title": "position",
+                "description": "position",
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/slider-1/onChangePosition",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": "unsubscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/slider-1/onChangePosition",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTSlider_v1_0_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTSlider_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTSlider_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/slider-1/ui",
+            "type": "text/html"
+        }
+    ]
+}

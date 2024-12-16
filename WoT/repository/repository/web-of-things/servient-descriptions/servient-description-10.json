@@ -1,0 +1,95 @@
+{
+	"name": "Servient_10",
+	"protocolManager": {
+		"httpManager": {
+			"gateway": {
+				"hostname": "mosquitto",
+				"port": 9001,
+				"topic": "/management"
+			},
+			"reconnectPeriod": 10000
+		},
+		"mqttManager": {
+			"server": {
+				"hostname": "mosquitto",
+				"port": 9001
+			},
+			"reconnectPeriod": 10000
+		},
+		"mqttsManager": {
+			"server": {
+				"hostname": "mosquitto",
+				"port": 9883
+			},
+			"reconnectPeriod": 10000
+		},
+		"httpsManager": {
+			"gateway": {
+				"hostname": "mosquitto",
+				"port": "8443",
+				"topic": "/management"
+			},
+			"reconnectPeriod": 10000
+		}
+	},
+	"consumedThings": [
+    ],
+	"exposedThings": [
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTSwitch_2.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-switch",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "WoTSwitch_2"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTSwitch_2.json"
+						},
+						{
+							"key": "read-status",
+							"value": "readproperty#status"
+						},
+						{
+							"key": "invoke-press",
+							"value": "invokeaction#press"
+						},
+						{
+							"key": "on-change-status",
+							"value": "subscribeevent#onChangeStatus"
+						},
+						{
+							"key": "location",
+							"value": "Universidad de Almería"
+						},
+						{
+							"key": "identifier",
+							"value": "Switch 1"
+						},
+						{
+							"key": "status-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/switch-2/status"
+						},
+						{
+							"key": "press-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/switch-2/press"
+						},
+						{
+							"key": "onchangestatus-href",
+							"value": "mqtt://localhost:9001/switch-2/onChangeStatus"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCSwitch_v1_0_0.js"
+				}
+			}
+		}
+		
+	],
+	"afterInitTimeout": 10000,
+	"afterStartAllThings": []
+}

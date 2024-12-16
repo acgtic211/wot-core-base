@@ -1,0 +1,7 @@
+{
+    "address": "192.168.1.38",
+    "readGroup": "5/1/1",
+    "writeGroup": "5/1/0",
+    "dataType": "DPT1.001",
+    "status": false
+}

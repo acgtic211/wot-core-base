@@ -1,0 +1,92 @@
+{
+    "@type": "WoTButton_1",
+    "id": "Button_3",
+    "title": "Button 3",
+    "description": "Button 3",
+    "properties": {
+        "text": {
+            "title": "text",
+            "description": "text",
+            "type": "string",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/button-3/text",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/button-3/text",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "mailBox": {
+            "title": "main box",
+            "description": "receives messages from button 2",
+            "type": "string",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/button-3/mailBox",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/button-3/mailBox",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "sendMessage": {
+            "title": "Send message",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/button-3/sendMessage",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {
+        "messageReceived": {
+            "title": "Message received",
+            "data": {
+                "title": "Message",
+                "type": "string"
+            },
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/button-3/messageReceived",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTButton_1.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTButton_3.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTButton_3.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/button-3/ui",
+            "type": "text/html"
+        }
+    ]
+}

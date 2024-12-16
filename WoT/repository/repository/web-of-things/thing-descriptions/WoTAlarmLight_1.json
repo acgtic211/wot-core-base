@@ -1,0 +1,376 @@
+{
+   "@type": "WoTAlarmLight_v1_0_0",
+   "id": "AlarmLight_1",
+   "title": "Alarm Light_1",
+   "description": "Alarm Light 1",
+   "properties": {
+      "status": {
+         "title": "status",
+         "description": "Status",
+         "type": "object",
+		 "properties": {
+			"value": {
+				 "title": "value",
+				 "description": "Value",
+				 "type": "boolean"
+			},
+			"timestamp": {
+				 "title": "timestamp",
+				 "description": "Timestamp",
+				 "type": "integer"
+			}
+		 },
+		 "required": [ "value" ],
+         "forms": [
+			 {
+				"op": "readproperty",
+				"href": "https://acgsaas.ual.es:443/alarm-light-1/status",
+				"contentType": "application/json"
+			 },
+			 {
+				"op": "writeproperty",
+				"href": "https://acgsaas.ual.es:443/alarm-light-1/status",
+				"contentType": "application/json"
+			 }
+		 ]
+      },
+      "alarm": {
+         "title": "alarm",
+         "description": "Alarm",
+         "type": "object",
+		 "properties": {
+			"second": {
+				 "title": "second",
+				 "description": "Second",
+				 "type" : "string"
+			},
+			"minute": {
+				 "title": "minute",
+				 "description": "Minute",
+				 "type" : "string"
+			},
+			"hour": {
+				 "title": "hour",
+				 "description": "Hour",
+				 "type" : "string"
+			},
+			"dayOfMonth": {
+				 "title": "dayOfMonth",
+				 "description": "Day of month",
+				 "type" : "string"
+			},
+			"month": {
+				 "title": "month",
+				 "description": "Month",
+				 "type" : "string"
+			},
+			"dayOfWeek": {
+				 "title": "dayOfWeek",
+				 "description": "Day of week",
+				 "type" : "string"
+			}
+		 },
+		 "required": [ "second", "minute", "hour", "dayOfMonth", "month", "dayOfWeek" ],
+         "forms": [
+			 {
+				"op": "readproperty",
+				"href": "https://acgsaas.ual.es:443/alarm-light-1/alarm",
+				"contentType": "application/json"
+			 },
+			 {
+				"op": "writeproperty",
+				"href": "https://acgsaas.ual.es:443/alarm-light-1/alarm",
+				"contentType": "application/json"
+			 }
+		 ]
+      }
+   },
+   "actions": {
+      "toggle": {
+         "title": "toggle",
+         "description": "Toggle the status",
+         "forms": [
+			 {
+				"op": "invokeaction",
+				"href": "https://acgsaas.ual.es:443/alarm-light-1/toggle",
+				"contentType": "application/json"
+			 }
+		 ]
+      },
+	  "isItDaytime": {
+		"title": "Is it daytime?",
+		"description": "Checks if it is daytime",
+		"forms": [
+			{
+				"op": "invokeaction",
+				"href": "https://acgsaas.ual.es:443/alarm-light-1/isitdaytime",
+				"contentType": "application/json"
+			}
+		]
+	  },
+	  "isItWakeUpTime": {
+		"title": "Is it wake up time?",
+		"description": "Checks if the time is near the alarm´s timer",
+		"forms": [
+			{
+				"op": "invokeaction",
+				"href": "https://acgsaas.ual.es:443/alarm-light-1/isitwakeuptime",
+				"contentType": "application/json"
+			}
+		]
+	  }
+   },
+   "events": {
+      "onChangeStatus": {
+			"title": "onChangeStatus",
+			"description": "Change on the status",
+			"data": {
+				"title": "status",
+				"description": "Status",
+				"type": "object",
+				"properties": {
+					"value": {
+						"title": "value",
+						"description": "Value",
+						"type": "string",
+						"enum": [ "on", "off" ]
+					},
+					"timestamp": {
+						"title": "timestamp",
+						"description": "Timestamp",
+						"type": "integer"
+					}
+				},
+				"required": [ "status" ]
+			},
+			"forms": [
+				{
+				"op": "subscribeevent",
+				"href": "mqtt://acgsaas.ual.es:443/alarm-light-1/onChangeStatus",
+				"contentType": "application/json"
+				}
+			]
+		},
+		"onChangeAlarm": {
+			"title": "onChangeAlarm",
+			"description": "Change on the alarm",
+			"data": {
+				"title": "alarm",
+				"description": "Alarm",
+				"type": "object",
+				"properties": {
+					"second": {
+						"title": "second",
+						"description": "Second",
+						"type" : "string"
+					},
+					"minute": {
+						"title": "minute",
+						"description": "Minute",
+						"type" : "string"
+					},
+					"hour": {
+						"title": "hour",
+						"description": "Hour",
+						"type" : "string"
+					},
+					"dayOfMonth": {
+						"title": "dayOfMonth",
+						"description": "Day of month",
+						"type" : "string"
+					},
+					"month": {
+						"title": "month",
+						"description": "Month",
+						"type" : "string"
+					},
+					"dayOfWeek": {
+						"title": "dayOfWeek",
+						"description": "Day of week",
+						"type" : "string"
+					}
+				},
+				"required": [ "second", "minute", "hour", "dayOfMonth", "month", "dayOfWeek" ]
+			},
+			"forms": [
+				{
+					"op": "subscribeevent",
+					"href": "mqtt://acgsaas.ual.es:443/alarm-light-1/onChangeAlarm",
+					"contentType": "application/json"
+				}
+			]
+		},
+		"onScheduled1": {
+			"title": "onScheduled1",
+			"description": "Scheduled job 1",
+			"data": {
+				"title": "status",
+				"description": "status",
+				"type": "boolean",
+				"required": [ "status" ]
+			},
+			"forms": [
+				{
+					"op": "subscribeevent",
+					"href": "mqtt://acgsaas.ual.es:443/alarm-light-1/onScheduled1",
+					"contentType": "application/json"
+				}
+			]
+		},
+		"onScheduled1-2": {
+			"title": "onScheduled1-2",
+			"description": "Scheduled job 1.2",
+			"data": {
+				"title": "position",
+				"description": "position",
+				"type": "integer",
+				"required": [ "position" ]
+			},
+			"forms": [
+				{
+					"op": "subscribeevent",
+					"href": "mqtt://acgsaas.ual.es:443/alarm-light-1/onScheduled1-2",
+					"contentType": "application/json"
+				}
+			]
+		},
+		"onScheduled4": {
+			"title": "onScheduled4",
+			"description": "Scheduled job 4",
+			"data": {
+				"title": "status",
+				"description": "status",
+				"type": "boolean",
+				"required": [ "status" ]
+			},
+			"forms": [
+				{
+					"op": "subscribeevent",
+					"href": "mqtt://acgsaas.ual.es:443/alarm-light-1/onScheduled4",
+					"contentType": "application/json"
+				}
+			]
+		},
+		"onScheduled5": {
+			"title": "onScheduled5",
+			"description": "Scheduled job 5",
+			"data": {
+				"title": "temperature",
+				"description": "temperature",
+				"type": "integer",
+				"required": [ "temperature" ]
+			},
+			"forms": [
+				{
+					"op": "subscribeevent",
+					"href": "mqtt://acgsaas.ual.es:443/alarm-light-1/onScheduled11",
+					"contentType": "application/json"
+				}
+			]
+		},
+		"onScheduled2": {
+			"title": "onScheduled2",
+			"description": "Scheduled job 2",
+			"data": {
+				"title": "bri",
+				"description": "bri",
+				"type": "integer",
+				"required": [ "bri" ]
+			},
+			"forms": [
+				{
+					"op": "subscribeevent",
+					"href": "mqtt://acgsaas.ual.es:443/alarm-light-1/onScheduled2",
+					"contentType": "application/json"
+				}
+			]
+		},
+		"onScheduled3": {
+			"title": "onScheduled3",
+			"description": "Scheduled job 3",
+			"data": {
+				"title": "ct",
+				"description": "ct",
+				"type": "integer",
+				"required": [ "ct" ]
+			},
+			"forms": [
+				{
+					"op": "subscribeevent",
+					"href": "mqtt://acgsaas.ual.es:443/alarm-light-1/onScheduled3",
+					"contentType": "application/json"
+				}
+			]
+		},
+		"onStart": {
+			"title": "onStart",
+			"description": "onStart",
+			"data": {
+				"title": "msg",
+				"description": "msg",
+				"type": "string"
+			},
+			"forms": [
+				{
+					"op": "subscribeevent",
+					"href": "mqtt://acgsaas.ual.es:443/alarm-light-1/onStart",
+					"contentType": "application/json"
+				}
+			]
+		},
+		"onMiddle": {
+			"title": "onMiddle",
+			"description": "onMiddle",
+			"data": {
+				"title": "msg",
+				"description": "msg",
+				"type": "string"
+			},
+			"forms": [
+				{
+					"op": "subscribeevent",
+					"href": "mqtt://acgsaas.ual.es:443/alarm-light-1/onMiddle",
+					"contentType": "application/json"
+				}
+			]
+		},
+		"onEnd": {
+			"title": "onEnd",
+			"description": "onEnd",
+			"data": {
+				"title": "msg",
+				"description": "msg",
+				"type": "string"
+			},
+			"forms": [
+				{
+					"op": "subscribeevent",
+					"href": "mqtt://acgsaas.ual.es:443/alarm-light-1/onEnd",
+					"contentType": "application/json"
+				}
+			]
+		}
+	},
+   "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTAlarmLight_v1_0_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTAlarmLight_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTAlarmLight_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/alarm-light-1/ui",
+            "type": "text/html"
+        }
+   ]
+}

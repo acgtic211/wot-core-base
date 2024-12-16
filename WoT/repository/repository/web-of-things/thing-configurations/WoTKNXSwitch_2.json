@@ -1,0 +1,7 @@
+{
+    "status": {"value": false},
+    "address": "192.168.1.38",
+    "readGroup": "2/1/1",
+    "writeGroup": "2/1/0",
+    "dataType": "DPT1.001"
+}

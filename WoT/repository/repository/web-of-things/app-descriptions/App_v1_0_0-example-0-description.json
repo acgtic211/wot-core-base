@@ -1,0 +1,294 @@
+{
+	"title": "My WoT App",
+	"systemManagementServients": [
+		"http://repository:38080/web-of-things/servient-descriptions/servient-tis.json"
+	],
+	"servientDescriptions": [
+		"http://repository:38080/web-of-things/servient-descriptions/servient-example-0-description.json",
+		"http://repository:38080/web-of-things/servient-descriptions/servient-description-9.json",
+		"http://repository:38080/web-of-things/servient-descriptions/servient-description-8.json"
+	],
+	"afterStartAllServients": [
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+    				"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTSwitch_1.json",
+					"eventName": "onChangeStatus",
+					"servientName": "Servient_Example_0"
+				},
+				"targets": [
+				    {
+    				    "thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTBulb_1.json",
+					    "propertyName": "status",
+						"servientName": "Servient_Example_0"
+			        }
+	            ]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+    				"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTSlider_1.json",
+					"eventName": "onChangePosition",
+					"servientName": "Servient_Example_0"
+				},
+				"targets": [
+				    {
+    				    "thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTBlind_1.json",
+					    "propertyName": "position",
+						"servientName": "Servient_Example_0"
+			        }
+	            ]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTKeyboard_1.json",
+					"eventName": "onChangeText",
+					"servientName": "Servient_Example_0"
+				},
+				"targets": [
+					{
+						"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTScreen_1.json",
+						"propertyName": "text",
+						"servientName": "Servient_Example_0"
+					}
+				]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTLedSwitch_1.json",
+					"eventName": "onChangeLedStatus",
+					"servientName": "Servient_Example_0"
+				},
+				"targets": [
+					{
+						"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTLedLine_1.json",
+						"propertyName": "leds",
+						"servientName": "Servient_Example_0"
+					}
+				]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription":"http://repository:38080/web-of-things/thing-descriptions/WoTKNXSwitch_1.json",
+					"eventName": "onChangeStatus",
+					"servientName": "Servient_9"
+				},
+				"targets": [
+					{
+						"thingDescription": "https://acg.ual.es:443/things/acg:lab:suitcase-dd/",
+						"propertyName": "status-light1",
+						"servientName": "Servient_9"
+					}
+				]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription":"http://repository:38080/web-of-things/thing-descriptions/WoTKNXSwitch_2.json",
+					"eventName": "onChangeStatus",
+					"servientName": "Servient_9"
+				},
+				"targets": [
+					{
+						"thingDescription": "https://acg.ual.es:443/things/acg:lab:suitcase-dd/",
+						"propertyName": "status-light2",
+						"servientName": "Servient_9"
+					}
+				]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription":"http://repository:38080/web-of-things/thing-descriptions/WoTKNXWaterSwitch_1.json",
+					"eventName": "onChangeStatus",
+					"servientName": "Servient_9"
+				},
+				"targets": [
+					{
+						"thingDescription": "https://acg.ual.es:443/things/acg:lab:suitcase-dd/",
+						"propertyName": "status-water",
+						"servientName": "Servient_9"
+					}
+				]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription":"http://repository:38080/web-of-things/thing-descriptions/WoTKNXFireSwitch_1.json",
+					"eventName": "onChangeStatus",
+					"servientName": "Servient_9"
+				},
+				"targets": [
+					{
+						"thingDescription": "https://acg.ual.es:443/things/acg:lab:suitcase-dd/",
+						"propertyName": "status-fire",
+						"servientName": "Servient_9"
+					}
+				]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTKNXDimmer_1.json",
+					"eventName": "onChangeBrightness",
+					"servientName": "Servient_9"
+				},
+				"targets": [
+					{
+						"thingDescription": "https://acg.ual.es:443/things/acg:lab:suitcase-dd/",
+						"propertyName": "luminosity-dimmer1",
+						"servientName": "Servient_9"
+					}
+				]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTKNXDimmer_2.json",
+					"eventName": "onChangeBrightness",
+					"servientName": "Servient_9"
+				},
+				"targets": [
+					{
+						"thingDescription": "https://acg.ual.es:443/things/acg:lab:suitcase-dd/",
+						"propertyName": "luminosity-dimmer2",
+						"servientName": "Servient_9"
+					}
+				]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTLightSensor.json",
+					"eventName": "onChangeBrightness",
+					"servientName": "Servient_8"
+				},
+				"targets": [
+					{
+						"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTAlarmLight_1.json",
+						"actionName": "isItDaytime",
+						"servientName": "Servient_8"
+					}
+				]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTMotionSensor_1.json",
+					"eventName": "movement",
+					"servientName": "Servient_8"
+				},
+				"targets": [
+					{
+						"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTAlarmLight_1.json",
+						"actionName": "isItWakeUpTime",
+						"servientName": "Servient_8"
+					}
+				]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTAlarmLight_1.json",
+					"eventName": "onScheduled1-2",
+					"servientName": "Servient_8"
+				},
+				"targets": [
+					{
+						"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTBlind_2.json",
+						"propertyName": "position",
+						"servientName": "Servient_8"
+					}
+				]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTAlarmLight_1.json",
+					"eventName": "onScheduled4",
+					"servientName": "Servient_8"
+				},
+				"targets": [
+					{
+						"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTAC_2.json",
+						"propertyName": "status",
+						"servientName": "Servient_8"
+					},
+					{
+						"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTWaterHeater.json",
+						"propertyName": "status",
+						"servientName": "Servient_8"
+					}
+				]
+			}
+		},
+		{
+			"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTConnector_1.json",
+			"actionName": "link",
+			"params": {
+				"source": {
+					"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTAlarmLight_1.json",
+					"eventName": "onScheduled5",
+					"servientName": "Servient_8"
+				},
+				"targets": [
+					{
+						"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTAC_2.json",
+						"propertyName": "temperature",
+						"servientName": "Servient_8"
+					},
+					{
+						"thingDescription": "http://repository:38080/web-of-things/thing-descriptions/WoTWaterHeater.json",
+						"propertyName": "temperature",
+						"servientName": "Servient_8"
+					}
+				]
+			}
+		}
+		
+	]
+}

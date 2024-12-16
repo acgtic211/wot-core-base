@@ -1,0 +1,138 @@
+{
+    "@type": "WoTAC_1",
+    "id": "WoTAC_1",
+    "title": "AC 1",
+    "descripcion": "AC 1",
+    "properties": {
+        "temperature": {
+            "title": "temperature",
+            "type": "integer",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/ac-1/temperature",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/ac-1/temperature",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "alarm": {
+            "title": "Alarm",
+            "type": "boolean",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/ac-1/alarm",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/ac-1/alarm",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "allowedID": {
+            "title": "Allowed IDs",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/ac-1/allowedid",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/ac-1/allowedid",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "increase": {
+            "title": "Increase",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/ac-1/increase",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "decrease": {
+            "title": "Decrease",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/ac-1/decrease",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {
+        "temperatureStatus": {
+            "title": "Temperature status",
+            "data": {
+                "title": "temperatureStatus",
+                "type": "object",
+                "properties": {
+                    "temperature": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/ac-1/temperatureStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "alarmStatus": {
+            "title": "Alarm status",
+            "data": {
+                "title": "alarmStatus",
+                "type": "boolean"
+            },
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/ac-1/alarmStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTAC_1.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTAC_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTAC_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/ac-1/ui",
+            "type": "text/html"
+        }
+    ]
+}

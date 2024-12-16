@@ -1,0 +1,98 @@
+{
+    "@type": "WoTAC_Remote_1",
+    "id": "WoTACRemote_1",
+    "title": "WoT AC Remote 1",
+    "properties": {
+        "temperature": {
+            "type": "integer",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/acremote-1/temperature",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/acremote-1/temperature",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "id": {
+            "type": "integer",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/acremote-1/id",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/acremote-1/id",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "increase": {
+            "title": "Increase",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/acremote-1/increase",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "decrease": {
+            "title": "Decrease",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/acremote-1/decrease",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {
+        "temperatureStatus": {
+            "title": "temperatureStatus",
+            "data": {
+                "title": "temperature",
+                "type": "integer"
+            },
+            "type": "integer",
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/acremote-1/temperatureStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTACRemote_1.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTACRemote_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTACRemote_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/acremote-1/ui",
+            "type": "text/html"
+        }
+    ]
+}

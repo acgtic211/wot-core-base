@@ -1,0 +1,267 @@
+{
+	"name": "Servient_8",
+	"protocolManager": {
+		"httpManager": {
+			"gateway": {
+				"hostname": "mosquitto",
+				"port": 9001,
+				"topic": "/management"
+			},
+			"reconnectPeriod": 10000
+		},
+		"mqttManager": {
+			"server": {
+				"hostname": "mosquitto",
+				"port": 9001
+			},
+			"reconnectPeriod": 10000
+		},
+		"mqttsManager": {
+			"server": {
+				"hostname": "mosquitto",
+				"port": 9883
+			},
+			"reconnectPeriod": 100000
+		},
+		"httpsManager": {
+			"gateway": {
+				"hostname": "mosquitto",
+				"port": 9883,
+				"topic": "/management"
+			},
+			"reconnectPeriod": 10000
+		}
+	},
+	"consumedThings": [
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTAlarmLight_1.json"
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTColorLight_4.json"
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTColorLight_2.json"
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTMotionSensor_1.json"
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTLightSensor.json"
+		}
+	],
+	"exposedThings": [
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTAlarmLight_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"userInterfaceDescription": {
+					"element": "wc-alarm-light",
+					"attributes": [
+						{
+							"key": "identifier",
+							"value": "Virtual Alarm Light"
+						},
+						{
+							"key": "location",
+							"value": "2.15 - CITIC - UAL"
+						},
+						{
+							"key": "status-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/alarm-light-1/status"
+						},
+						{
+							"key": "toggle-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/alarm-light-1/toggle"
+						},
+						{
+							"key": "onchangestatus-href",
+							"value": "wss://acgsaas.ual.es:443/ws/alarm-light-1/onChangeStatus"
+						},
+						{
+							"key": "alarm-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/alarm-light-1/alarm"
+						},
+						{
+							"key": "onchangealarm-href",
+							"value": "wss://acgsaas.ual.es:443/ws/alarm-light-1/onChangeAlarm"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCAlarmLight_v1_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTAC_2.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"userInterfaceDescription": {
+					"element": "wc-ac-2",
+					"attributes": [
+						{
+							"key": "identifier",
+							"value": "Virtual Air Conditioner"
+						},
+						{
+							"key": "location",
+							"value": "2.15 - CITIC - UAL"
+						},
+						{
+							"key": "status-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/ac-2/status"
+						},
+						{
+							"key": "temperature-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/ac-2/temperature"
+						},
+						{
+							"key": "toggle-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/ac-2/toggle"
+						},
+						{
+							"key": "increase-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/ac-2/increase"
+						},
+						{
+							"key": "decrease-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/ac-2/decrease"
+						},
+						{
+							"key": "acstatus-href",
+							"value": "wss://acgsaas.ual.es:443/ws/ac-2/acStatus"
+						},
+						{
+							"key": "temperaturestatus-href",
+							"value": "wss://acgsaas.ual.es:443/ws/ac-2/temperatureStatus"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCAC_v2_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTAC_Remote_2.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"userInterfaceDescription": {
+					"element": "wc-acremote-2",
+					"attributes": [
+						{
+							"key": "identifier",
+							"value": "Virtual AC Remote"
+						},
+						{
+							"key": "location",
+							"value": "2.15 - CITIC - UAL"
+						},
+						{
+							"key": "status-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/acremote-2/status"
+						},
+						{
+							"key": "temperature-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/acremote-2/temperature"
+						},
+						{
+							"key": "toggle-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/acremote-2/toggle"
+						},
+						{
+							"key": "increase-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/acremote-2/increase"
+						},
+						{
+							"key": "decrease-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/acremote-2/decrease"
+						},
+						{
+							"key": "onchangestatus-href",
+							"value": "wss://acgsaas.ual.es:443/ws/acremote-2/onchangestatus"
+						},
+						{
+							"key": "temperaturestatus-href",
+							"value": "wss://acgsaas.ual.es:443/ws/acremote-2/temperatureStatus"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCACRemote_v2_0_0.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTWaterHeater.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"userInterfaceDescription": {
+					"element": "wc-waterheater",
+					"attributes": [
+						{
+							"key": "identifier",
+							"value": "Virtual Water Heater"
+						},
+						{
+							"key": "location",
+							"value": "2.15 - CITIC - UAL"
+						},
+						{
+							"key": "status-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/waterheater-1/status"
+						},
+						{
+							"key": "temperature-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/waterheater-1/temperature"
+						},
+						{
+							"key": "toggle-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/waterheater-1/toggle"
+						},
+						{
+							"key": "settemperature-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/waterheater-1/setTemperature"
+						},
+						{
+							"key": "temperaturestatus-href",
+							"value": "wss://acgsaas.ual.es:443/ws/waterheater-1/temperatureStatus"
+						},
+						{
+							"key": "whstatus-href",
+							"value": "wss://acgsaas.ual.es:443/ws/waterheater-1/whStatus"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCWaterHeater_1.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTBlind_2.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"userInterfaceDescription": {
+					"element": "wc-blind",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "WoTBlind_2"
+						},
+						{
+							"key": "identifier",
+							"value": "Virtual Blind"
+						},
+						{
+							"key": "location",
+							"value": "2.15 - CITIC - UAL"
+						},
+						{
+							"key": "position-href",
+							"value": "https://acgsaas.ual.es:443/wot-core/blind-2/position"
+						},
+						{
+							"key": "onchangeposition-href",
+							"value": "mqtts://acgsaas.ual.es:443/ws/blind-2/onChangePosition"
+						}
+					],
+					"src": "https://acgsaas.ual.es:443/core-repo/web-components/WCBlind_v1_0_0.js"
+				}
+			}
+		}
+	],
+	"afterStartAllThings": []
+}

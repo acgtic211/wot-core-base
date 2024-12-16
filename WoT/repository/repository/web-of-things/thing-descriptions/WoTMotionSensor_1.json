@@ -1,0 +1,34 @@
+{
+    "@type": "WoTMotionSensor_1",
+    "id": "MotionSensor_1",
+    "title": "Motion Sensor 1",
+    "description": "Motion Sensor 1",
+    "properties": {
+
+    },
+    "actions": {
+
+    },
+    "events": {
+        "movement": {
+            "title": "Movement event",
+            "data": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string"
+                    }
+                }
+                
+            },
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/motionsensor-1/movement",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": []
+}

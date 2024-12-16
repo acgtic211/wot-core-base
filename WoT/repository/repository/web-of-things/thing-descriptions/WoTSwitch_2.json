@@ -1,0 +1,88 @@
+{
+    "@type": "WoTSwitch_v1_0_0",
+    "id": "Switch_2",
+    "title": "Switch 2",
+    "description": "Switch 2",
+    "properties": {
+       "status": {
+          "title": "status",
+          "description": "status",
+          "type": "boolean",
+          "forms": [
+              {
+                 "op": [ "readproperty" ],
+                 "href": "https://acgsaas.ual.es:443/switch-2/status",
+                 "contentType": "application/json"
+              },
+              {
+                 "op": [ "observeproperty", "unobserveproperty" ],
+                 "href": "mqtt://acgsaas.ual.es:443/switch-2/status",
+                 "contentType": "application/json"
+              },
+              {
+                 "op": [ "writeproperty" ],
+                 "href": "mqtt://acgsaas.ual.es:443/switch-2/wstatus",
+                 "contentType": "application/json"
+              }
+          ]
+       }
+    },
+    "actions": {
+       "press": {
+          "title": "press",
+          "description": "Toggle the status",
+          "forms": [
+              {
+                 "op": "invokeaction",
+                 "href": "https://acgsaas.ual.es:443/switch-2/press",
+                 "contentType": "application/json"
+              }
+          ]
+       }
+    },
+    "events": {
+       "onChangeStatus": {
+          "title": "onChangeStatus",
+          "description": "Change on the status",
+          "data": {
+              "title": "status",
+              "description": "Status",
+              "type": "boolean"
+          },
+          "forms": [
+              {
+                 "op": "subscribeevent",
+                 "href": "mqtt://acgsaas.ual.es:443/switch-2/onChangeStatus",
+                 "contentType": "application/json"
+              },
+              {
+                 "op": "unsubscribeevent",
+                 "href": "mqtt://acgsaas.ual.es:443/switch-2/onChangeStatus",
+                 "contentType": "application/json"
+              }
+          ]
+       }
+    },
+    "links": [
+         {
+             "rel": "implementedBy",
+             "href": "http://repository:38080/web-of-things/thing-implementations/WoTSwitch_v1_0_0.js",
+             "type": "application/javascript"
+         },
+         {
+             "rel": "defaultConfiguredBy",
+             "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTSwitch_1.json",
+             "type": "application/json"
+         },
+         {
+             "rel": "configuredBy",
+             "href": "http://repository:38080/web-of-things/thing-configurations/WoTSwitch_1.json",
+             "type": "application/json"
+         },
+         {
+             "rel": "renderedBy",
+             "href": "http://http-server:38090/switch-2/ui",
+             "type": "text/html"
+         }
+    ]
+ }

@@ -1,0 +1,98 @@
+{
+   "@type": "WoTBulbX_v1_0_0",
+   "id": "Bulb_X",
+   "title": "Bulb X",
+   "description": "Bulb X",
+   "properties": {
+      "info": {
+         "title": "info",
+         "description": "Info",
+         "type": "object",
+		 "properties": {
+	        "ctmax": { "type": "integer" },
+	        "ctmin": { "type": "integer" },
+	        "etag": { "type": "string" },
+	        "hascolor": { "type": "boolean" },
+	        "lastannounced": { "type": "string" },
+	        "lastseen": { "type": "string" },
+	        "manufacturername": { "type": "string" },
+	        "modelid": { "type": "string" },
+	        "name": { "type": "string" },
+			"state": {
+				 "title": "state",
+				 "description": "State",
+				 "type": "object",
+        		 "properties": {
+        	        "alert": { "type": "string" },
+        	        "bri": { "type": "integer" },
+        	        "colormode": { "type": "string" },
+        	        "ct": { "type": "integer" },
+        			"on": {
+        				 "title": "on",
+        				 "description": "on",
+        				 "type": "boolean"
+        			},
+        	        "reachable": { "type": "boolean" }
+        		 },
+            	 "required": [ "on" ]
+			},
+	        "swversion": { "type": "string" },
+	        "type": { "type": "string" },
+	        "uniqueid": { "type": "string" }
+		 },
+		 "required": [ "state" ],
+         "forms": [
+			 {
+				"op": "readproperty",
+				"href": "http://192.168.101.92:8080/api/9585EF1293/lights/7c:b0:3e:aa:00:b0:f6:83-03",
+				"contentType": "application/json"
+			 }
+		 ]
+      },
+      "on": {
+         "title": "on",
+         "description": "on",
+         "type": "boolean",
+		 "required": [],
+         "forms": [
+			 {
+				"op": "writeproperty",
+				"href": "http://192.168.101.92:8080/api/9585EF1293/lights/7c:b0:3e:aa:00:b0:f6:83-03/state",
+				"contentType": "application/json",
+				"htv:methodName": "PUT"
+			 }
+		 ]
+      },
+      "bri": {
+         "title": "bri",
+         "description": "bri",
+         "type": "integer",
+		 "required": [],
+         "forms": [
+			 {
+				"op": "writeproperty",
+				"href": "http://192.168.101.92:8080/api/9585EF1293/lights/7c:b0:3e:aa:00:b0:f6:83-03/state",
+				"contentType": "application/json",
+				"htv:methodName": "PUT"
+			 }
+		 ]
+      },
+      "ct": {
+         "title": "ct",
+         "description": "ct",
+         "type": "integer",
+		 "required": [],
+         "forms": [
+			 {
+				"op": "writeproperty",
+				"href": "http://192.168.101.92:8080/api/9585EF1293/lights/7c:b0:3e:aa:00:b0:f6:83-03/state",
+				"contentType": "application/json",
+				"htv:methodName": "PUT"
+			 }
+		 ]
+      }
+   },
+   "actions": {},
+   "events": {},
+   "links": []
+}

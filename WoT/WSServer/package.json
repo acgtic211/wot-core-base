@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "mqtt": "^4.3.7",
+    "socket.io": "^4.2.0",
+    "websocket": "^1.0.34",
+    "ws": "^7.4.6"
+  },
+  "name": "wsserver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tesi",
+  "license": "ISC",
+  "description": ""
+}

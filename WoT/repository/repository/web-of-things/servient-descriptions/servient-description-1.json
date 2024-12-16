@@ -1,0 +1,249 @@
+{
+    "name": "Servient_Secure_1",
+    "protocolManager": {
+        "httpManager": {
+			"gateway": {
+				"hostname": "mosquitto",
+				"port": 9001,
+				"topic": "/management"
+			},
+			"reconnectPeriod": 10000
+		},
+		"mqttManager": {
+			"server": {
+				"hostname": "mosquitto",
+				"port": 9001
+			},
+			"reconnectPeriod": 10000
+		},
+		"mqttsManager": {
+			"server": {
+				"hostname": "mosquitto",
+				"port": 9883
+			},
+			"reconnectPeriod": 100000
+		},
+		"httpsManager": {
+			"gateway": {
+				"hostname": "mosquitto",
+				"port": 9883,
+				"topic": "/management"
+			},
+			"reconnectPeriod": 10000
+		}
+    },
+    "consumedThings": [
+
+    ],
+    "exposedThings": [
+        {
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTAC_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-ac",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "AC - 1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTAC_1.json"
+						},
+						{
+							"key": "read-temperature",
+							"value": "readproperty#temperature"
+						},
+						{
+							"key": "read-alarm",
+							"value": "readproperty#alarm"
+						},
+						{
+							"key": "on-change-temperature",
+							"value": "subscribeevent#temperatureStatus"
+						},
+						{
+							"key": "on-change-alarm",
+							"value": "subscribeevent#alarmStatus"
+						},
+						{
+							"key": "location",
+							"value": "Universidad de Almería"
+						},
+						{
+							"key": "identifier",
+							"value": "AC 1"
+						},
+						{
+							"key": "ui-send-request",
+							"value": "wss://acgsaas.ual.es:443/ws/ac-1/ui/sendRequest"
+						},
+						{
+							"key": "ui-receive-response",
+							"value": "wss://acgsaas.ual.es:443/ws/ac-1/ui/reciveResponse"
+						},
+						{
+							"key": "temperature-href",
+							"value": "https://localhost:443/ac-1/temperature"
+						},
+						{
+							"key": "alarm-href",
+							"value": "https://localhost:443/ac-1/alarm"
+						},
+						{
+							"key": "temperatureStatus-href",
+							"value": "wss://acgsaas.ual.es:443/ws/ac-1/temperatureStatus"
+						},
+						{
+							"key": "alarmStatus-href",
+							"value": "wss://acgsaas.ual.es:443/ws/ac-1/alarmStatus"
+						},
+						{
+							"key": "increase-href",
+							"value": "https://localhost:443/ac-1/increase"
+						},
+						{
+							"key": "decrease-href",
+							"value": "https://localhost:443/ac-1/decrease"
+						}
+					],
+					"src": "http://localhost:38080/web-components/WCAC_1.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTAC_Alarm_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-acalarm",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "AC Alarm - 1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTAC_Alarm_1.json"
+						},
+						{
+							"key": "read-temperature",
+							"value": "readproperty#temperature"
+						},
+						{
+							"key": "read-alarmStatus",
+							"value": "readproperty#alarmStatus"
+						},
+						{
+							"key": "on-change-alarm",
+							"value": "subscribeevent#alarmStatus"
+						},
+						{
+							"key": "location",
+							"value": "Universidad de Almería"
+						},
+						{
+							"key": "identifier",
+							"value": "AC Alarm 1"
+						},
+						{
+							"key": "ui-send-request",
+							"value": "wss://acgsaas.ual.es:443/ws/acalarm-1/ui/sendRequest"
+						},
+						{
+							"key": "ui-receive-response",
+							"value": "wss://acgsaas.ual.es:443/ws/acalarm-1/ui/reciveResponse"
+						},
+						{
+							"key": "temperature-href",
+							"value": "https://localhost:443/acalarm-1/temperature"
+						},
+						{
+							"key": "alarm-href",
+							"value": "https://localhost:443/acalarm-1/alarm"
+						},
+						{
+							"key": "setAlarm-href",
+							"value": "https://localhost:443/acalarm-1/setAlarm"
+						},
+						{
+							"key": "alarmStatus-href",
+							"value": "wss://acgsaas.ual.es:443/ws/acalarm-1/alarmStatus"
+						},
+						{
+							"key": "temperatureStatus-href",
+							"value": "wss://acgsaas.ual.es:443/ws/acalarm-1/temperatureStatus"
+						}
+					],
+					"src": "http://localhost:38080/web-components/WCACAlarm_1.js"
+				}
+			}
+		},
+		{
+			"thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTAC_Remote_1.json",
+			"thingUserInterface": {
+				"enabled": true,
+				"wrapped": true,
+				"userInterfaceDescription": {
+					"element": "wc-acremote",
+					"attributes": [
+						{
+							"key": "thing-id",
+							"value": "AC Remote - 1"
+						},
+						{
+							"key": "thing-description",
+							"value": "http://localhost:38080/web-of-things/thing-descriptions/WoTAC_Remote_1.json"
+						},
+						{
+							"key": "read-temperature",
+							"value": "readproperty#temperature"
+						},
+						{
+							"key": "on-change-temperature",
+							"value": "subscribeevent#temperatureStatus"
+						},
+						{
+							"key": "location",
+							"value": "Universidad de Almería"
+						},
+						{
+							"key": "identifier",
+							"value": "AC Remote 1"
+						},
+						{
+							"key": "ui-send-request",
+							"value": "mqtt://localhost:9883/acremote-1/ui/sendRequest"
+						},
+						{
+							"key": "ui-receive-response",
+							"value": "mqtt://localhost:9883/acremote-1/ui/reciveResponse"
+						},
+						{
+							"key": "temperature-href",
+							"value": "https://localhost:443/acremote-1/temperature"
+						},
+						{
+							"key": "temperatureStatus-href",
+							"value": "wss://acgsaas.ual.es:443/ws/acremote-1/temperatureStatus"
+						},
+						{
+							"key": "increase-href",
+							"value": "https://localhost:443/acremote-1/increase"
+						},
+						{
+							"key": "decrease-href",
+							"value": "https://localhost:443/acremote-1/decrease"
+						}
+					],
+					"src": "http://localhost:38080/web-components/WCACRemote_1.js"
+				}
+			}
+		}
+    ],
+    "afterInitTimeout": 10000,
+	"afterStartAllThings": []
+}

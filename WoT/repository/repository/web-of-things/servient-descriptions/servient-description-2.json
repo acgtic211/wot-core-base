@@ -1,0 +1,100 @@
+{
+    "name": "Servient_2",
+    "protocolManager": {
+        "httpManager": {
+			"gateway": {
+				"hostname": "mosquitto",
+				"port": 9001,
+				"topic": "/management"
+			},
+			"reconnectPeriod": 10000
+		},
+		"mqttManager": {
+			"server": {
+				"hostname": "mosquitto",
+				"port": 9001
+			},
+			"reconnectPeriod": 10000
+		},
+		"mqttsManager": {
+			"server": {
+				"hostname": "mosquitto",
+				"port": 9883
+			},
+			"reconnectPeriod": 100000
+		},
+		"httpsManager": {
+			"gateway": {
+				"hostname": "mosquitto",
+				"port": 9883,
+				"topic": "/management"
+			},
+			"reconnectPeriod": 10000
+		}
+    },
+    "consumedThings": [
+
+    ],
+    "exposedThings": [
+		
+        {
+            "thingDescriptionHref": "http://repository:38080/web-of-things/thing-descriptions/WoTButton_1.json",
+            "thingUserInterface": {
+                "enabled": true,
+                "wrapped": true,
+                "userInterfaceDescription": {
+                    "element": "wc-button",
+                    "attributes": [
+                        {
+                            "key": "thing-id",
+                            "value": "Button - 1"
+                        },
+                        {
+                            "key": "thing-description",
+                            "value": "http://localhost:38080/web-of-things/thing-descriptions/WoTButton_1.json"
+                        },
+                        {
+                            "key": "read-text",
+                            "value": "readproperty#text"
+                        },
+                        {
+                            "key": "message-received",
+                            "value": "subscribeevent#messageReceived"
+                        },
+                        {
+                            "key": "location",
+                            "value": "Universidad de Almeria"
+                        },
+                        {
+                            "key": "identifier",
+                            "value": "Button 1"
+                        },
+                        {
+                            "key": "ui-send-request",
+                            "value": "wss://acgsaas.ual.es:443/ws/button-1/ui/sendRequest"
+                        },
+                        {
+                            "key": "ui-receive-response",
+                            "value": "wss://acgsaas.ual.es:443/ws/button-1/ui/receiveResponse"
+                        },
+                        {
+                            "key": "text-href",
+                            "value": "https://localhost:443/button-1/text"
+                        },
+                        {
+                            "key": "sendMessage-href",
+                            "value": "https://localhost:443/button-1/sendMessage"
+                        },
+                        {
+                            "key": "messageReceived-href",
+                            "value": "wss://acgsaas.ual.es:443/ws/button-1/messageReceived"
+                        }
+                    ],
+                    "src": "http://localhost:38080/web-components/WCButton_v1_0_0.js"
+                }
+            }
+        }
+    ],
+    "afterInitTimeout": 10000,
+	"afterStartAllThings": []
+}

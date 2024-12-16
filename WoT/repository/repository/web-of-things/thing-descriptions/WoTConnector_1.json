@@ -1,0 +1,154 @@
+{
+   "@type": "WoTConnector_v1_0_0",
+   "id": "Connector_1",
+   "title": "Servient 1",
+   "description": "Servient 1",
+   "properties": {},
+   "actions": {
+      "link": {
+         "title": "link",
+         "description": "Link things",
+         "input": {
+			 "title": "params",
+			 "description": "params",
+			 "type": "object",
+			 "properties": {
+				"prefix": {
+					 "title": "prefix",
+					 "description": "prefix",
+					 "type": "string"
+				},
+				"source": {
+					 "title": "source",
+					 "description": "source",
+					 "type": "object",
+        			 "properties": {
+        				"id": {
+        					 "title": "id",
+        					 "description": "id",
+        					 "type": "string"
+        				},
+        				"properties": {
+        					 "title": "properties",
+        					 "description": "properties",
+        					 "type": "object"
+        				},
+        				"actions": {
+        					 "title": "actions",
+        					 "description": "actions",
+        					 "type": "object"
+        				},
+        				"events": {
+        					 "title": "events",
+        					 "description": "events",
+        					 "type": "object"
+        				}
+        			 }
+				},
+    			"target": {
+					"title": "target",
+					"description": "target",
+    			    "type": "array",
+    			    "items" : {
+                        "type" : "object",
+                		"properties": {
+            				"id": {
+            					 "title": "id",
+            					 "description": "id",
+            					 "type": "string"
+            				},
+            				"properties": {
+            					 "title": "properties",
+            					 "description": "properties",
+            					 "type": "object"
+            				},
+            				"actions": {
+            					 "title": "actions",
+            					 "description": "actions",
+            					 "type": "object"
+            				},
+            				"events": {
+            					 "title": "events",
+            					 "description": "events",
+            					 "type": "object"
+            				}
+                		 }
+                    }
+    			}
+			 },
+			 "required": [ "prefix", "source", "target" ]
+         },
+         "forms": [
+			 {
+				"op": "invokeaction",
+				"href": "http://http-server:38090/connector-1/link",
+				"contentType": "application/json"
+			 }
+		 ]
+      },
+      "unlink": {
+         "title": "unlink",
+         "description": "Unlink things",
+         "input": {
+			 "title": "params",
+			 "description": "params",
+			 "type": "object",
+			 "properties": {
+				"prefix": {
+					 "title": "prefix",
+					 "description": "prefix",
+					 "type": "string"
+				},
+				"source": {
+					 "title": "source",
+					 "description": "source",
+					 "type": "object",
+        			 "properties": {
+        				"id": {
+        					 "title": "id",
+        					 "description": "id",
+        					 "type": "string"
+        				},
+        				"properties": {
+        					 "title": "properties",
+        					 "description": "properties",
+        					 "type": "object"
+        				},
+        				"actions": {
+        					 "title": "actions",
+        					 "description": "actions",
+        					 "type": "object"
+        				},
+        				"events": {
+        					 "title": "events",
+        					 "description": "events",
+        					 "type": "object"
+        				}
+        			 }
+				}
+			 },
+			 "required": [ "prefix", "source" ]
+         },
+         "forms": [
+			 {
+				"op": "invokeaction",
+				"href": "mqtt://acgsaas.ual.es:443/connector-1/unlink",
+				"contentType": "application/json"
+			 }
+		 ]
+      }
+   },
+   "events": {},
+   "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTConnector_v1_0_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTConnector_1.json",
+            "type": "application/json"
+        }
+   ]
+}

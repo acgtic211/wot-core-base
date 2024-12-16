@@ -1,0 +1,129 @@
+{
+    "@type": "WoTAC_2",
+    "id": "WoTAC_2",
+    "title": "AC 2",
+    "descripcion": "AC 2",
+    "properties": {
+        "temperature": {
+            "title": "temperature",
+            "type": "integer",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/ac-2/temperature",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/ac-2/temperature",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "status": {
+            "title": "Status",
+            "type": "boolean",
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://http-server:38090/ac-2/status",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/ac-2/status",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "increase": {
+            "title": "Increase",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/ac-2/increase",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "decrease": {
+            "title": "Decrease",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/ac-2/decrease",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "toggle": {
+            "title": "Toggle",
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://http-server:38090/ac-2/toggle",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {
+        "temperatureStatus": {
+            "title": "Temperature status",
+            "data": {
+                "title": "temperatureStatus",
+                "type": "object",
+                "properties": {
+                    "temperature": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/ac-2/temperatureStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        },
+        "acStatus": {
+            "title": "AC status",
+            "data": {
+                "title": "acStatus",
+                "type": "boolean"
+            },
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/ac-2/acStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTAC_2.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTAC_2.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTAC_2.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/ac-2/ui",
+            "type": "text/html"
+        }
+    ]
+}

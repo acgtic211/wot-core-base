@@ -1,0 +1,105 @@
+{
+    "@type": "WoTLedSwitch_v1_0_0",
+    "id": "LedSwitch_1",
+    "title": "Led Switch 1",
+    "description": "Led Switch 1",
+    "properties": {
+        "leds": {
+            "title": "Leds",
+            "description": "Leds",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 10,
+            "items": {
+                "title": "Status",
+                "type": "boolean"
+            },
+            "forms": [
+                {
+                    "op": [ "readproperty" ],
+                    "href": "https://acgsaas.ual.es:443/ledswitch-1/leds",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/ledswitch-1/leds",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": [ "writeproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/ledswitch-1/wleds",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "toggle": {
+            "title": "Toggle",
+            "input": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 10,
+                "items": {
+                    "type": "boolean"
+                }
+            },
+            "forms":[
+                {
+                    "op": "invokeaction",
+                    "href": "https://acgsaas.ual.es:443/ledswitch-1/toggle",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {
+        "onChangeLedStatus": {
+            "title": "onChangeLedStatus",
+            "description": "Change on one or more of the leds´ status",
+            "data": {
+                "title": "Leds",
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 10,
+                "items": {
+                    "type": "boolean"
+                }
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/ledswitch-1/onChangeLedStatus",
+                    "contentType": "application/json"
+                },
+                {
+                    "op": "unsubscribeevent",
+                    "href": "mqtt://acgsaas.ual.es:443/ledswitch-1/onChangeLedStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTLedSwitch_v1_0_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "configuredBy",
+            "href": "http://repository:38080/web-of-things/thing-configurations/WoTLedSwitch_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTLedSwitch_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/ledswitch-1/ui",
+            "type": "text/html"
+        }
+    ]
+}

@@ -1,0 +1,196 @@
+{
+    "@context":"https://www.w3.org/2019/wot/td/v1",
+    "@type": "WoTColorLight1",
+    "id": "acg:lab:hue-light",
+    "title": "ACG Lab Color Light 1",
+    "description": "Color Light 1",
+    "properties": {
+        "props": {
+            "type": "object",
+            "title": "Properties",
+            "description": "Set of properties",
+            "properties":{
+                "state":{
+                    "type": "object",
+                    "properties":{
+                        "alert":{
+                            "type": "string"
+                        },
+                        "bri":{
+                            "type": "number"
+                        },
+                        "colormode":{
+                            "type": "string"
+                        },
+                        "ct":{
+                            "type": "number"
+                        },
+                        "effect":{
+                            "type": "string"
+                        },
+                        "hue":{
+                            "type": "number"
+                        },
+                        "on":{
+                            "type": "boolean"
+                        },
+                        "sat":{
+                            "type": "number"
+                        },
+                        "xy":{
+                            "type": "array"
+                        }
+                    }
+                }
+            },
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://acg.ual.es/projects/cosmart/wot-lab/things/acg:lab:hue-light/",
+                    "contentType": "application/json",
+                    "htv:methodName": "PUT"
+                }
+            ]
+        },
+        "propsReadable": {
+            "type": "object",
+            "title": "Properties",
+            "description": "Set of properties",
+            "properties":{
+                "colorcapabilities":{
+                    "type": "number"
+                },
+                "ctmax":{
+                    "type": "number"
+                },
+                "ctmin":{
+                    "type": "number"
+                },
+                "etag":{
+                    "type": "string"
+                },
+                "hascolor":{
+                    "type": "boolean"
+                },
+                "lastannounced":{
+                    "type": "string"
+                },
+                "lastseen":{
+                    "type": "string"
+                },
+                "manufacturername":{
+                    "type": "string"
+                },
+                "modelid":{
+                    "type": "string"
+                },
+                "name":{
+                    "type": "string"
+                },
+                "state":{
+                    "type": "object",
+                    "properties":{
+                        "alert":{
+                            "type": "string"
+                        },
+                        "bri":{
+                            "type": "number"
+                        },
+                        "colormode":{
+                            "type": "string"
+                        },
+                        "ct":{
+                            "type": "number"
+                        },
+                        "effect":{
+                            "type": "string"
+                        },
+                        "hue":{
+                            "type": "number"
+                        },
+                        "on":{
+                            "type": "boolean"
+                        },
+                        "reachable":{
+                            "type": "boolean"
+                        },
+                        "sat":{
+                            "type": "number"
+                        },
+                        "xy":{
+                            "type": "array"
+                        }
+                    }
+                },
+                "swversion":{
+                    "type": "string"
+                },
+                "type":{
+                    "type": "string"
+                },
+                "uniqueid":{
+                    "type": "string"
+                }
+            },
+            "forms": [
+                {
+                    "op": [ "readproperty" ],
+                    "href": "http://acg.ual.es/projects/cosmart/wot-lab/things/acg:lab:hue-light/",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {
+    },
+    "events": {
+        "onChangeState": {
+            "title": "onChangeState",
+         "description": "Change on the state´s properties",
+         "data": {
+			 "title": "state",
+			 "description": "State",
+			 "type": "object"
+         },
+         "forms": [
+			 {
+				"op": "subscribeevent",
+				"href": "mqtt://acgsaas.ual.es:443/colorlight-1/onChangeState",
+				"contentType": "application/json"
+			 },
+			 {
+				"op": "unsubscribeevent",
+				"href": "mqtt://acgsaas.ual.es:443/colorlight-1/onChangeState",
+				"contentType": "application/json"
+			 }
+		 ]
+        }
+
+    },
+    "securityDefinitions": {
+        "basic_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": [
+        "nosec"
+    ],
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTColorLight_v1_0_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTColorLight_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/colorlight-1/ui",
+            "type": "text/html"
+        }
+    ]
+    
+}

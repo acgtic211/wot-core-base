@@ -1,0 +1,40 @@
+{
+    "@type": "WoTLightSensor_v1_0_0",
+    "id": "WoTLightSensor_1",
+    "title": "WoT Light Sensor 1",
+    "properties": {
+        "brightness": {
+            "title": "brightness",
+            "type": "number",
+            "forms": [
+                {
+                    "op": ["readproperty"],
+                    "href": "mqtts://acgsaas.ual.es:443/light-sensor-1/brightness",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "actions": {},
+    "events": {
+        "onChangeBrightness": {
+            "title": "On change brightness",
+            "data": {
+                "type": "object",
+                "properties": {
+                    "brightness": {
+                        "type": "string"
+                    }
+                }
+            },
+            "forms": [
+                {
+                    "op": [ "subscribeevent", "unsubscribeevent" ],
+                    "href": "mqtt://acgsaas.ual.es:443/light-sensor-1/onChangeBrightness",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "links": []
+}

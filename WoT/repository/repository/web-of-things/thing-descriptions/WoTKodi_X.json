@@ -1,0 +1,160 @@
+{
+   "@type": "WoTKodi_X_v1_0_0",
+   "id": "Kodi_X",
+   "title": "Kodi X",
+   "description": "Kodi X",
+   "properties": {},
+   "actions": {
+      "setApplicationVolume": {
+         "title": "setApplicationVolume",
+         "description": "setApplicationVolume",
+         "input": {
+			 "title": "request",
+			 "description": "request",
+			 "type": "object",
+			 "properties": {
+				"jsonrpc": {
+					 "title": "jsonrpc",
+					 "description": "jsonrpc",
+					 "type": "string"
+				},
+				"id": {
+					 "title": "id",
+					 "description": "id",
+					 "type": "string"
+				},
+				"method": {
+					 "title": "method",
+					 "description": "method",
+					 "type": "string"
+				},
+				"params": {
+					 "title": "params",
+					 "description": "params",
+					 "type": "object",
+        			 "properties": {
+        				"volume": {
+        					 "title": "volume",
+        					 "description": "volume",
+        					 "type": "integer"
+        				}
+        			 },
+					"required": "volume"
+				}
+			 },
+			 "required": [ "jsonrpc", "id", "method", "params" ]
+         },
+         "forms": [
+			 {
+				"op": "invokeaction",
+				"href": "http://192.168.1.11:8080/jsonrpc",
+				"contentType": "application/json"
+			 }
+		 ]
+      },
+      "openPlayer": {
+         "title": "openPlayer",
+         "description": "openPlayer",
+         "input": {
+			 "title": "request",
+			 "description": "request",
+			 "type": "object",
+			 "properties": {
+				"jsonrpc": {
+					 "title": "jsonrpc",
+					 "description": "jsonrpc",
+					 "type": "string"
+				},
+				"id": {
+					 "title": "id",
+					 "description": "id",
+					 "type": "string"
+				},
+				"method": {
+					 "title": "method",
+					 "description": "method",
+					 "type": "string"
+				},
+				"params": {
+					 "title": "params",
+					 "description": "params",
+					 "type": "object",
+        			 "properties": {
+        				"item": {
+        					 "title": "item",
+        					 "description": "item",
+        					 "type": "object",
+							 "properties": {
+								"file": {
+									 "title": "file",
+									 "description": "file",
+									 "type": "object"
+								}
+							 },
+							"required": "file"
+        				}
+        			 },
+					"required": "item"
+				}
+			 },
+			 "required": [ "jsonrpc", "id", "method", "params" ]
+         },
+         "forms": [
+			 {
+				"op": "invokeaction",
+				"href": "http://192.168.1.11:8080/jsonrpc",
+				"contentType": "application/json"
+			 }
+		 ]
+      },
+      "stopPlayer": {
+         "title": "stopPlayer",
+         "description": "stopPlayer",
+         "input": {
+			 "title": "request",
+			 "description": "request",
+			 "type": "object",
+			 "properties": {
+				"jsonrpc": {
+					 "title": "jsonrpc",
+					 "description": "jsonrpc",
+					 "type": "string"
+				},
+				"id": {
+					 "title": "id",
+					 "description": "id",
+					 "type": "string"
+				},
+				"method": {
+					 "title": "method",
+					 "description": "method",
+					 "type": "string"
+				},
+				"params": {
+					 "title": "params",
+					 "description": "params",
+					 "type": "object",
+        			 "properties": {
+        				"playerid": {
+        					 "title": "playerid",
+        					 "description": "playerid",
+        					 "type": "integer"
+        				}
+        			 },
+					"required": "playerid"
+				}
+			 },
+			 "required": [ "jsonrpc", "id", "method", "params" ]
+         },
+         "forms": [
+			 {
+				"op": "invokeaction",
+				"href": "http://192.168.1.11:8080/jsonrpc",
+				"contentType": "application/json"
+			 }
+		 ]
+      }
+   },
+   "events": {},
+   "links": []
+}

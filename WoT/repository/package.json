@@ -1,0 +1,22 @@
+{
+  "name": "Repository",
+  "version": "1.0.0",
+  "description": "Repository",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "prestart": "npm install && npm audit fix",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Web of Things",
+    "Web Components"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "cors": "*",
+    "express": "*",
+    "wotnectivity-knx": "^1.0.2"
+  }
+}

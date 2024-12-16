@@ -1,0 +1,214 @@
+{
+    "@type": "WoTController_v1_0_0",
+    "id": "Controller_1",
+    "title": "Controller 1",
+    "description": "Controller 1",
+    "properties": {
+        "props": {
+            "type": "object",
+            "title": "Properties",
+            "description": "Set of properties",
+            "properties":{
+                "colorcapabilities":{
+                    "type": "number"
+                },
+                "ctmax":{
+                    "type": "number"
+                },
+                "ctmin":{
+                    "type": "number"
+                },
+                "etag":{
+                    "type": "string"
+                },
+                "hascolor":{
+                    "type": "boolean"
+                },
+                "lastannounced":{
+                    "type": "string"
+                },
+                "lastseen":{
+                    "type": "string"
+                },
+                "manufacturername":{
+                    "type": "string"
+                },
+                "modelid":{
+                    "type": "string"
+                },
+                "name":{
+                    "type": "string"
+                },
+                "state":{
+                    "type": "object",
+                    "properties":{
+                        "alert":{
+                            "type": "string"
+                        },
+                        "bri":{
+                            "type": "number"
+                        },
+                        "colormode":{
+                            "type": "string"
+                        },
+                        "ct":{
+                            "type": "number"
+                        },
+                        "effect":{
+                            "type": "string"
+                        },
+                        "hue":{
+                            "type": "number"
+                        },
+                        "on":{
+                            "type": "boolean"
+                        },
+                        "reachable":{
+                            "type": "boolean"
+                        },
+                        "sat":{
+                            "type": "number"
+                        },
+                        "xy":{
+                            "type": "array"
+                        }
+                    }
+                },
+                "swversion":{
+                    "type": "string"
+                },
+                "type":{
+                    "type": "string"
+                },
+                "uniqueid":{
+                    "type": "string"
+                }
+            },
+            "forms": [
+                {
+                    "op": [ "readproperty", "writeproperty" ],
+                    "href": "http://acg.ual.es/projects/cosmart/wot-lab/things/acg:lab:hue-light/",
+                    "contentType": "application/json",
+                    "htv:methodName": "PUT"
+                },
+                {
+                    "op": [ "observeproperty", "unobserveproperty" ],
+                    "href": "mqtt://acgsaas.ual.es:443/controller-1/state"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "changeState": {
+            "title": "Change state",
+            "description": "Changes the prop´s property state",
+            "input":{
+                "state":{
+                    "type": "object",
+                    "properties":{
+                        "alert":{
+                            "type": "string"
+                        },
+                        "bri":{
+                            "type": "number"
+                        },
+                        "colormode":{
+                            "type": "string"
+                        },
+                        "ct":{
+                            "type": "number"
+                        },
+                        "effect":{
+                            "type": "string"
+                        },
+                        "hue":{
+                            "type": "number"
+                        },
+                        "on":{
+                            "type": "boolean"
+                        },
+                        "sat":{
+                            "type": "number"
+                        },
+                        "xy":{
+                            "type": "array"
+                        }
+                    }
+                }
+            },
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://acg.ual.es/projects/cosmart/wot-lab/things/acg:lab:hue-light/state",
+                    "contentType": "application/json",
+                    "htv:methodName": "PUT"
+                }
+            ]
+        },
+        "toggle":{
+            "title": "Toggle",
+            "description": "Toggle the light on or off",
+            "input":{
+                "state":{
+                    "type":"object",
+                    "properties":{
+                        "on": {
+                            "type":"boolean"
+                        }
+                    }
+                }
+            },
+            "forms":[
+                {
+                    "op":"invokeaction",
+                    "href":"http://acg.ual.es/projects/cosmart/wot-lab/things/acg:lab:hue-light/state",
+                    "contentType":"application/json",
+                    "htv:methodName": "PUT"
+                }
+            ]
+        }
+        
+    },
+    "events": {
+        "onChangeState": {
+            "title": "onChangeState",
+         "description": "Change on the state´s properties",
+         "data": {
+			 "title": "state",
+			 "description": "State",
+			 "type": "object"
+         },
+         "forms": [
+			 {
+				"op": "subscribeevent",
+				"href": "mqtt://acgsaas.ual.es:443/controller-1/onChangeState",
+				"contentType": "application/json"
+			 },
+			 {
+				"op": "unsubscribeevent",
+				"href": "mqtt://acgsaas.ual.es:443/controller-1/onChangeState",
+				"contentType": "application/json"
+			 }
+		 ]
+        }
+
+    },
+    "links": [
+        {
+            "rel": "implementedBy",
+            "href": "http://repository:38080/web-of-things/thing-implementations/WoTController_v1_0_0.js",
+            "type": "application/javascript"
+        },
+        {
+            "rel": "defaultConfiguredBy",
+            "href": "http://repository:38080/web-of-things/thing-default-configurations/WoTController_1.json",
+            "type": "application/json"
+        },
+        {
+            "rel": "renderedBy",
+            "href": "http://http-server:38090/controller-1/ui",
+            "type": "text/html"
+        }
+        
+    ]
+}

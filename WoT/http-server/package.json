@@ -1,0 +1,24 @@
+{
+  "name": "HTTP-Server",
+  "version": "1.0.0",
+  "description": "HTTP Server",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "prestart": "npm install && npm audit fix",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Web of Things",
+    "Web Components"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "cors": "*",
+    "express": "*",
+    "express-request-id": "*",
+    "mqtt": "*",
+    "spdy": "^4.0.2"
+  }
+}
